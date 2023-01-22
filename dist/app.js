@@ -1,4 +1,13 @@
 // 1. PODSTAWOWE TYPY DANYCH
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 // a) number
 const birthDate = 1990;
 // // let age: number;
@@ -127,22 +136,34 @@ const people = [
     [1, 2, 3, 45, 56, 7],
 ];
 // 1. Stwórz funkcję renderTodoList (async/await)
-// 2. W funkcji renderTodoList strzel do https://jsonplaceholder.typicode.com/todos/ fetchem, pamiętaj o await.
-// 3. Rozpakuj odpowiedź metodą JSON. Również pamiętaj o await.
-// 4. Stwórz element ul (createElement()).
-// 5. Z każdego todosa pochodzącego z API wyciągnij własność title. Możesz skorzystać z metody .map(). Wszystkie tytuły składuj w liście w zmiennej titles.
-// 6. Dla każdego tytułu stwórz element li (createElement()), wykorzystując forEach. Ustaw textContent li na aktualny tytuł (1 paramter forEach). Zaraz po tym przyczep (appendChild) li do ul'a (pkt 4).
-// 7. Przyczep (appendChild) ul'a do body strony.
-const renderTodoList = () => {
-    const titles = fetch(`https://jsonplaceholder.typicode.com/todos/`);
-    const data = titles.json();
-    console.log(data);
+const renderTodoList = () => __awaiter(this, void 0, void 0, function* () {
+    // 2. W funkcji renderTodoList strzel do https://jsonplaceholder.typicode.com/todos/ fetchem, pamiętaj o await.
+    const response = yield fetch("https://jsonplaceholder.typicode.com/todos/");
+    // 3. Rozpakuj odpowiedź metodą JSON. Również pamiętaj o await.
+    const datas = yield response.json();
     const ul = document.createElement("ul");
-    for (const todo of data) {
+    // 5. Z każdego todosa pochodzącego z API wyciągnij własność title. Możesz skorzystać z metody .map(). Wszystkie tytuły składuj w liście w zmiennej titles.
+    let titles = datas.map((todos) => todos.title);
+    // 6. Dla każdego tytułu stwórz element li (createElement()), wykorzystując forEach. Ustaw textContent li na aktualny tytuł (1 paramter forEach). Zaraz po tym przyczep (appendChild) li do ul'a (pkt 4).
+    titles.forEach((title) => {
         const li = document.createElement("li");
-        li.textContent = todo.title;
+        li.textContent = title;
         ul.appendChild(li);
-    }
+    });
+    // 7. Przyczep (appendChild) ul'a do body strony.
     document.body.appendChild(ul);
-};
+});
 renderTodoList();
+// const renderTodoList = async () => {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
+//   const datas = await response.json();
+//   const ul = document.createElement("ul");
+//   let titles = datas.map((todos) => todos.title);
+//   titles.forEach((title) => {
+//     const li = document.createElement("li");
+//     li.textContent = title;
+//     ul.appendChild(li);
+//   });
+//   document.body.appendChild(ul);
+// };
+// renderTodoList();
