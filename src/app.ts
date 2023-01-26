@@ -13,28 +13,27 @@ let getWeather = function () {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      let cityNow = data.name;
 
-      let tempNow = data.main.temp;
-      let clouds = data.clouds.all;
-
-      // console.log(cityNow);
-      // console.log("Current temperature: " + tempNow);
       const h1City = document.createElement("h1");
-      h1City.innerHTML = cityNow;
+      h1City.innerHTML = data.name;
+      document.body.appendChild(h1City);
+
       const ul = document.createElement("ul");
       const coordNow = document.createElement("li");
       coordNow.innerHTML = "geolocation : " + lat + ", " + lon;
       const liTemp = document.createElement("li");
-      liTemp.innerHTML = "current temperature: " + tempNow + " ºC";
+      liTemp.innerHTML = "current temperature: " + data.main.temp + " ºC";
       const liClouds = document.createElement("li");
-      liClouds.innerHTML = "clouds : " + clouds + "%";
-
-      document.body.appendChild(h1City);
-
+      liClouds.innerHTML = "clouds : " + data.clouds.all + "%";
+      const liHum = document.createElement("li");
+      liHum.innerHTML = "humidity : " + data.main.humidity + "%";
+      const liWind = document.createElement("li");
+      liWind.innerHTML = "wind speed : " + data.wind.speed + " m/s";
       ul.appendChild(coordNow);
       ul.appendChild(liTemp);
       ul.appendChild(liClouds);
+      ul.appendChild(liHum);
+      ul.appendChild(liWind);
       document.body.appendChild(ul);
     };
     renderLocalList();
@@ -50,14 +49,12 @@ const getUSD = async () => {
   const data = await response.json();
   let currency = data.code;
   let currVal = data.rates[0].mid;
-  const ul = document.createElement("ul");
-  const li = document.createElement("li");
-  li.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
-  ul.appendChild(li);
-  document.body.appendChild(ul);
+  const usd = document.createElement("h3");
+  usd.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
+  document.body.appendChild(usd);
   console.log(data);
 };
-getUSD();
+setTimeout(getUSD, 2000);
 
 const getEUR = async () => {
   const response = await fetch(
@@ -66,28 +63,29 @@ const getEUR = async () => {
   const data = await response.json();
   let currency = data.code;
   let currVal = data.rates[0].mid;
-  const ul = document.createElement("ul");
-  const li = document.createElement("li");
-  li.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
-  ul.appendChild(li);
-  document.body.appendChild(ul);
+  const eur = document.createElement("h3");
+  eur.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
+  document.body.appendChild(eur);
   console.log(data);
 };
-getEUR();
+setTimeout(getEUR, 3000);
 
-const getGBR = async () => {
+const getGBP = async () => {
   const response = await fetch(
     "https://api.nbp.pl/api/exchangerates/rates/A/GBP"
   );
   const data = await response.json();
   let currency = data.code;
   let currVal = data.rates[0].mid;
-  const ul = document.createElement("ul");
-  const li = document.createElement("li");
-  li.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
-  ul.appendChild(li);
-  document.body.appendChild(ul);
-
+  const gbp = document.createElement("h3");
+  gbp.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
+  document.body.appendChild(gbp);
   console.log(data);
 };
-getGBR();
+setTimeout(getGBP, 4000);
+
+function reload() {
+  document.location.reload();
+}
+
+setTimeout(reload, 15000);
