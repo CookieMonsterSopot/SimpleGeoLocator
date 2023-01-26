@@ -55,9 +55,7 @@ const getUSD = async () => {
   li.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
   ul.appendChild(li);
   document.body.appendChild(ul);
-
   console.log(data);
-  // document.getElementById("currency").innerHTML = currency;
 };
 getUSD();
 
@@ -73,9 +71,7 @@ const getEUR = async () => {
   li.innerHTML = "Kurs " + currency + " : " + currVal + " PLN";
   ul.appendChild(li);
   document.body.appendChild(ul);
-
   console.log(data);
-  // document.getElementById("currency").innerHTML = currency;
 };
 getEUR();
 
@@ -93,6 +89,5 @@ const getGBR = async () => {
   document.body.appendChild(ul);
 
   console.log(data);
-  // document.getElementById("currency").innerHTML = currency;
 };
 getGBR();

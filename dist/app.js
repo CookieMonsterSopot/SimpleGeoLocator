@@ -56,7 +56,6 @@ const getUSD = () => __awaiter(this, void 0, void 0, function* () {
     ul.appendChild(li);
     document.body.appendChild(ul);
     console.log(data);
-    // document.getElementById("currency").innerHTML = currency;
 });
 getUSD();
 const getEUR = () => __awaiter(this, void 0, void 0, function* () {
@@ -70,7 +69,6 @@ const getEUR = () => __awaiter(this, void 0, void 0, function* () {
     ul.appendChild(li);
     document.body.appendChild(ul);
     console.log(data);
-    // document.getElementById("currency").innerHTML = currency;
 });
 getEUR();
 const getGBR = () => __awaiter(this, void 0, void 0, function* () {
@@ -84,6 +82,5 @@ const getGBR = () => __awaiter(this, void 0, void 0, function* () {
     ul.appendChild(li);
     document.body.appendChild(ul);
     console.log(data);
-    // document.getElementById("currency").innerHTML = currency;
 });
 getGBR();
