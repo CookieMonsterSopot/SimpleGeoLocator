@@ -46,7 +46,7 @@ let getWeather = function () {
 };
 getWeather();
 const getUSD = () => __awaiter(this, void 0, void 0, function* () {
-    const response = yield fetch("http://api.nbp.pl/api/exchangerates/rates/A/USD");
+    const response = yield fetch("https://api.nbp.pl/api/exchangerates/rates/A/USD");
     const data = yield response.json();
     let currency = data.code;
     let currVal = data.rates[0].mid;
@@ -60,7 +60,7 @@ const getUSD = () => __awaiter(this, void 0, void 0, function* () {
 });
 getUSD();
 const getEUR = () => __awaiter(this, void 0, void 0, function* () {
-    const response = yield fetch("http://api.nbp.pl/api/exchangerates/rates/A/EUR");
+    const response = yield fetch("https://api.nbp.pl/api/exchangerates/rates/A/EUR");
     const data = yield response.json();
     let currency = data.code;
     let currVal = data.rates[0].mid;
@@ -74,7 +74,7 @@ const getEUR = () => __awaiter(this, void 0, void 0, function* () {
 });
 getEUR();
 const getGBR = () => __awaiter(this, void 0, void 0, function* () {
-    const response = yield fetch("http://api.nbp.pl/api/exchangerates/rates/A/GBP");
+    const response = yield fetch("https://api.nbp.pl/api/exchangerates/rates/A/GBP");
     const data = yield response.json();
     let currency = data.code;
     let currVal = data.rates[0].mid;

@@ -45,7 +45,7 @@ getWeather();
 
 const getUSD = async () => {
   const response = await fetch(
-    "http://api.nbp.pl/api/exchangerates/rates/A/USD"
+    "https://api.nbp.pl/api/exchangerates/rates/A/USD"
   );
   const data = await response.json();
   let currency = data.code;
@@ -63,7 +63,7 @@ getUSD();
 
 const getEUR = async () => {
   const response = await fetch(
-    "http://api.nbp.pl/api/exchangerates/rates/A/EUR"
+    "https://api.nbp.pl/api/exchangerates/rates/A/EUR"
   );
   const data = await response.json();
   let currency = data.code;
@@ -81,7 +81,7 @@ getEUR();
 
 const getGBR = async () => {
   const response = await fetch(
-    "http://api.nbp.pl/api/exchangerates/rates/A/GBP"
+    "https://api.nbp.pl/api/exchangerates/rates/A/GBP"
   );
   const data = await response.json();
   let currency = data.code;
