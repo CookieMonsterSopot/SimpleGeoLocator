@@ -88,4 +88,4 @@ function reload() {
   document.location.reload();
 }
 
-setTimeout(reload, 15000);
+setTimeout(reload, 30000);
