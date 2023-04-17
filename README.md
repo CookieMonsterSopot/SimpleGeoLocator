@@ -5,4 +5,4 @@
 
 ## GOOD LUCK !
 
-- Live Site URL: [Lotto Generator](https://cookiemonstersopot.github.io/TypeScript/)
+- Live Site URL: [Simple GeoLocator](https://cookiemonstersopot.github.io/TypeScript/)
